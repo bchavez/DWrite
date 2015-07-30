@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "dwrite", "dwrite\dwrite.vcxproj", "{B5C85614-7A55-419D-8EC7-D91BE1AFE482}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "dwrite.tests", "dwrite.tests\dwrite.tests.vcxproj", "{D371B66C-79FE-4E67-94FB-01A0C48A7243}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B5C85614-7A55-419D-8EC7-D91BE1AFE482}.Debug|Win32.ActiveCfg = Debug|Win32
+		{B5C85614-7A55-419D-8EC7-D91BE1AFE482}.Debug|Win32.Build.0 = Debug|Win32
+		{B5C85614-7A55-419D-8EC7-D91BE1AFE482}.Release|Win32.ActiveCfg = Release|Win32
+		{B5C85614-7A55-419D-8EC7-D91BE1AFE482}.Release|Win32.Build.0 = Release|Win32
+		{D371B66C-79FE-4E67-94FB-01A0C48A7243}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D371B66C-79FE-4E67-94FB-01A0C48A7243}.Debug|Win32.Build.0 = Debug|Win32
+		{D371B66C-79FE-4E67-94FB-01A0C48A7243}.Release|Win32.ActiveCfg = Release|Win32
+		{D371B66C-79FE-4E67-94FB-01A0C48A7243}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

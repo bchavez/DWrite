@@ -1,0 +1,79 @@
+<div dir="ltr">
+    <h2>Intro</h2>
+    Are you dissatisfied with Internet Explorer 9's font rendering?
+    <br />
+    Would you instead prefer your fonts be rendered without any anti-aliasing?
+    <br />
+    If so, you have the perfect download!  Copying our <tt>dwrite.dll</tt> (and accompanying <tt>detoured.dll</tt>)
+    to a program's folder gives us a chance to intercept and forward the calls to the real <tt>DWrite.dll</tt>,
+    disabling Font Smoothing in the process.
+    <br />
+    <h2>How to turn off the blurry fonts for Internet Explorer 9 (32-bit only)</h2>
+    <ol>
+        <li>
+            Extract and copy both <tt>.DLL</tt> files to <tt>C:\Program Files (x86)\Internet Explorer\</tt> 
+            You will need administrator rights to do this.
+        </li>
+        <li>
+            Close all instances of Internet Explorer and then re-open them.
+        </li> 
+        <li>
+            Enjoy the bliss of crisp fonts!
+        </li>
+    </ol>
+    <h2>How to disable ClearType in HtmlHelp (the CHM viewer)</h2> 
+    <div> 
+    <ol>
+        <li>
+            Copy and rename the file <tt>C:\Windows\System32\hh.exe</tt> to a new folder,
+            say <tt>C:\Program Files\HtmlHelp\hh2.exe</tt>
+        </li> 
+        <ul>
+            <li>
+                <b>64-bit users</b>: the paths will be <tt>C:\Windows\SysWOW64\hh.exe</tt> and
+                <tt>C:\Program Files (x86)\HTML Help Workshop\hh2.exe</tt>
+            </li>
+        </ul>
+        <li>
+            Extract and copy both files next to <tt>hh2.exe</tt>
+        </li> 
+        <li>
+            Find your favorite <tt>.chm</tt> file (any one will do), right-click on it &gt; Open with &gt; Choose default program...
+        </li> 
+        <li>
+            Click Browse... navigate to your shiny new <tt>hh2.exe</tt> and click Open (or double-click it).
+        </li> 
+        <li>
+            Check the checkbox next to <i>Always use the selected program to open this kind of file</i>
+        </li> 
+        <li>
+            Click OK
+        </li> 
+        <li>
+            Chill out with the straight lines!
+        </li> 
+    </ol> 
+    <h2>How to replace DirectWrite's "ideal font rendering" effects for any other program that embeds MSHTML.dll (Google Talk, H3Viewer, etc.)</h2> 
+    <ol>
+        <li>
+            Extract and copy both files to the same folder as the program executable.
+        </li>
+        <li>
+            Start or restart the program.
+        </li> 
+        <li>
+            Smile at the lack of sub-pixel rendering!
+        </li> 
+    </ol> 
+    <h2>Boring details</h2>
+    <div>
+        This is actually a port of the <a href="https://addons.mozilla.org/en-US/firefox/addon/anti-aliasing-tuner/">Anti-Aliasing Tuner for Firefox 4</a>,
+        minus the ability to customize the options.  An upcoming release will implement the novel idea of trying to read
+        the options from the operating system's settings and add 64-bit support.
+    </div> 
+    <h2>Bug reports, feedback, etc.</h2>
+    Bug reports and feedback would be most appreciated! Please send an e-mail to <a href="mailto:info@softwareninjas.ca">info@softwareninjas.ca</a>.
+    <h2>Updates</h2>
+    Go to <a href="http://www.softwareninjas.ca/dwrite-dll-wrapper">http://www.softwareninjas.ca/dwrite-dll-wrapper</a>
+    to see if any updates have been released since last downloaded.
+<div>

@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project DefaultTargets="compile" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <UsingTask TaskName="Zip" AssemblyFile="Tools/SoftwareNinjas.MSBuild.dll" />
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <Major>1</Major>
+        <Minor>4</Minor>
+        <Build Condition=" '$(Build)' == '' ">$(BUILD_NUMBER)</Build>
+        <Build Condition=" '$(Build)' == '' ">private</Build>
+    </PropertyGroup>
+    <Target Name="clean">
+        <!-- TODO: do we want something more...drastic? -->
+        <MSBuild Projects="dwrite.sln" Properties="Configuration=$(Configuration)" Targets="clean" />
+    </Target>
+    <Target Name="compile" DependsOnTargets="clean">
+        <PropertyGroup>
+            <VersionDefinesXsl>
+<![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+
+    <xsl:output method="text" encoding="UTF-8" indent="yes" />
+
+    <xsl:template match="/version">
+#define VERSION_LIST    <xsl:value-of select="@major" />,<xsl:value-of select="@minor" />,<xsl:value-of select="@build" />,0
+#define VERSION_STRING  "<xsl:value-of select="@major" />.<xsl:value-of select="@minor" />.<xsl:value-of select="@build" />.0"
+    </xsl:template>
+</xsl:stylesheet>
+]]>
+            </VersionDefinesXsl>
+        </PropertyGroup>
+        <XslTransformation
+            Condition=" '$(BUILD_NUMBER)' != '' "
+            XmlContent="&lt;version major='$(Major)' minor='$(Minor)' build='$(BUILD_NUMBER)' /&gt;"
+            OutputPaths="dwrite/Version.h"
+            XslContent="$(VersionDefinesXsl)"
+        />
+        <MSBuild Projects="dwrite.sln" Properties="Configuration=$(Configuration)" />
+    </Target>
+    <Target Name="package" DependsOnTargets="compile">
+        <RemoveDir Directories="Deploy" />
+        <MakeDir Directories="Deploy" />
+        <ItemGroup>
+            <DeployFiles Include="detours/detoured.dll" />
+            <DeployFiles Include="$(Configuration)/dwrite.dll" />
+            <DeployFiles Include="readme.html" />
+        </ItemGroup>
+        <Zip ZipFile="Deploy/DWrite-$(Major).$(Minor).$(Build).zip" SourceFiles="@(DeployFiles)" Flatten="true" />
+    </Target>
+</Project>

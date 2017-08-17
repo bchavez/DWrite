@@ -1,6 +1,6 @@
 This is a fork of the original source code primarily for research purposes. 
 
-My goal here would be to figure out how to disable anti-aliasing on a system-wide level on modern OSes like Windows 7, 8 and 10.
+My goal here would be to figure out how to disable anti-aliasing on a system-wide level on modern OSes like Windows 7, 8 and 10, including WPF apps.
 
 
 # DWrite
